@@ -1,6 +1,9 @@
 # FIFA06USAPatch
-Tool to calculate and patch checksums for the game FIFA 06 version USA for the NDS.
+FIFA06 (USA) NDS Savegame Checksum Patcher
 
-Special thanks to:
+# Usage
+Win32: f6usapatch.exe savegame.sav
+Linux: ./f6usapatch savegame.sav
 
+# Special thanks to:
 FIX94 (calculation code)

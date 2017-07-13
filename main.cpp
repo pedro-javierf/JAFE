@@ -1,21 +1,20 @@
 // Checkpatch
 // Custom checksum patcher for FIFA06 NDS
 
-#include <stdio.h>
-#include <malloc.h>
+#include <stdio.h>  //C I/O
+#include <malloc.h> //Memory Allocation
 #include <inttypes.h>
 #include <fstream>  //File I/O
-#include <iostream>
 
-int main()
+
+int main(int argc, char *argv[])
 {
-	printf("               Checkpatch\n");
-	printf("     by pedro-javierf and ChampionLeake\n");
-	printf("heavily based on FIX94's crc calculation code\n\n");
+	printf("               F6USA_Patch\n");
+	printf("FIFA06 (USA) NDS Savegame Checksum Patcher\n\n");
 
 	//Open Savegame in read mode
-	FILE *f = fopen("savegame.dsv", "rb");
-	//Seek to the end of the file to measure the filesize
+	FILE *f = fopen(argv[1], "rb");
+	//Seek to the end of the file to measure the size
 	fseek(f, 0, SEEK_END);
 	size_t fsize = ftell(f);
 	//Done, set the file pointer back at the top
@@ -30,7 +29,6 @@ int main()
 	uint8_t *data = (uint8_t*)malloc(fsize);
 	fread(data, 1, fsize, f);
 	
-
 	//Starting value for the CRC
 	unsigned short crc = 11;
 
@@ -53,35 +51,20 @@ int main()
 
 	//File stream 'fstream' can both read and write to files
 	std::fstream saveStream;
-	saveStream.open("savegame.dsv", std::ios::in | std::ios::out | std::ios::binary);
+	saveStream.open(argv[1], std::ios::in | std::ios::out | std::ios::binary);
 	if (!saveStream.is_open())
 	{
-		std::cout << "[!] Can't Open Transformers.sav";
+		printf("[!] Can't Open %s", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 
 	saveStream.seekg(0x10);//Checksum address
 	saveStream.write(reinterpret_cast<const char *>(&crc), sizeof(crc)); 
 
-	/*FUCK C
-	//Open Savegame in write mode
-	FILE *S = fopen("savegame.dsv", "wb");
-
-	printf("Patching savegame...\n\n");
-	fseek(S, 0x10, SEEK_SET);
-	
-	unsigned short *pointer;
-	pointer = &crc;
-
-	fwrite(pointer, 1, 2, f);
-	
-	//fprintf(S, "%04x", crc);
-	*/
-
-
 	printf("Done!\n");
 
 	saveStream.close();
+	fgetchar();
 	//fclose(S);
 	return 0;
 }
