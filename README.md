@@ -3,9 +3,8 @@ A successful attempt to exploit the US version of FIFA SOCCER 06 for the Nintend
 Runs in NTR/NDS mode. This exploit should work on any of the Nintendo DS family.
 
 # Usage
-* (Patching the savefile) Win32: CRCFix-FIFA06 savegame.sav
-* Linux: ./CRCFix-FIFA06 savegame.sav
-
+* (Patching the savefile) Win32: `CRCFix-FIFA06 savegame.sav`
+* Linux: `./CRCFix-FIFA06 savegame.sav`
 
 # Special thanks to:
 * FIX94 (calculation code)
