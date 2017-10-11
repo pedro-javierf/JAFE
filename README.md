@@ -18,6 +18,6 @@ Go to _"My Club"_, then go to _"Edit My Club"_
 * Any other person who contributed or helped us learning / solving other issues :)
 ###
 ## Video Demonstration:
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=r6Ma8x6apQE
-" target="_blank"><img src="http://img.youtube.com/vi/r6Ma8x6apQE/0.jpg" 
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=izY33AAAt0k
+" target="_blank"><img src="http://img.youtube.com/vi/izY33AAAt0k/0.jpg" 
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
